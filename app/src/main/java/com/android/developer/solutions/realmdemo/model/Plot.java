@@ -16,6 +16,7 @@ public class Plot extends RealmObject {
     private long id;
     private String title;
     private int no_of_building;
+
     private RealmList<Building> buildingArrayList;
 
     public long getId() {
@@ -40,6 +41,14 @@ public class Plot extends RealmObject {
 
     public void setNo_of_building(int no_of_building) {
         this.no_of_building = no_of_building;
+    }
+
+    public RealmList<Building> getBuildingArrayList() {
+        return buildingArrayList;
+    }
+
+    public void setBuildingArrayList(RealmList<Building> buildingArrayList) {
+        this.buildingArrayList = buildingArrayList;
     }
 
 }

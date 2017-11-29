@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your  own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i<plots.size(); i++) {
             result = result+ plots.get(0).toString();
             Realm.getDefaultInstance().beginTransaction();
+            //realm not supporting cascading
+            //so for that we have to delete data like this
+            if(plots.get(0).getBuildingArrayList() != null) {
+                plots.get(0).getBuildingArrayList().deleteAllFromRealm();
+            }
             plots.get(0).deleteFromRealm();
             Realm.getDefaultInstance().commitTransaction();
         }
