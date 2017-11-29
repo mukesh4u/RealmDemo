@@ -2,7 +2,9 @@ package com.android.developer.solutions.realmdemo.model;
 
 import java.util.ArrayList;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.LinkingObjects;
 import io.realm.annotations.PrimaryKey;
 
 /**
@@ -13,8 +15,8 @@ public class Plot extends RealmObject {
     @PrimaryKey
     private long id;
     private String title;
-    private String no_of_building;
-    private ArrayList<Building> buildingArrayList;
+    private int no_of_building;
+    private RealmList<Building> buildingArrayList;
 
     public long getId() {
         return id;
@@ -32,11 +34,11 @@ public class Plot extends RealmObject {
         this.title = title;
     }
 
-    public String getNo_of_building() {
+    public int getNo_of_building() {
         return no_of_building;
     }
 
-    public void setNo_of_building(String no_of_building) {
+    public void setNo_of_building(int no_of_building) {
         this.no_of_building = no_of_building;
     }
 
