@@ -18,6 +18,16 @@ public class Building extends RealmObject {
     private int no_of_floors;
     private  RealmList<Floor> floorArrayList;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    private String address;
+
     public RealmResults<Plot> getOwners() {
         return owners;
     }
